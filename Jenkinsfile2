@@ -1,0 +1,47 @@
+node {
+    // Define the Maven tool
+    def mvnTool = tool 'Maven'
+
+    // Stage: Test
+    stage("Test") {
+        // mvn test
+        sh "${mvnTool}/bin/mvn test"
+        echo "Test Complete"
+    }
+
+    // Stage: Build
+    stage("Build") {
+        sh "${mvnTool}/bin/mvn package"
+        echo "Build Complete"
+    }
+
+    // Stage: Deploy on Test
+    stage("Deploy on Test") {
+        // Deploy on container -> plugin
+        echo "Deployed on Test"
+        // Add your deploy logic here (replace this comment)
+    }
+
+    // Stage: Deploy on Prod
+    stage("Deploy on Prod") {
+        // Input step
+        input(message: "Should we continue?", ok: "Yes we Should")
+
+        // Deploy on container -> plugin
+        echo "Deployed on Production"
+        // Add your deploy logic here (replace this comment)
+    }
+
+    // Post-build Actions
+    echo "========always========"
+    
+    // Success Post Action
+    success {
+        echo "========pipeline executed successfully ========"
+    }
+
+    // Failure Post Action
+    failure {
+        echo "========pipeline execution failed========"
+    }
+}
