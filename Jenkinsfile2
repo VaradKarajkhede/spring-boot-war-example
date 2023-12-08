@@ -18,8 +18,13 @@ node {
     // Stage: Deploy on Test
     stage("Deploy on Test") {
         // Deploy on container -> plugin
+        echo "Deploying on Test..."
+        deploy(
+            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://107.22.137.230:8080')],
+            contextPath: '/app',
+            war: '**/*.war'
+        )
         echo "Deployed on Test"
-        // Add your deploy logic here (replace this comment)
     }
 
     // Stage: Deploy on Prod
@@ -28,8 +33,13 @@ node {
         input(message: "Should we continue?", ok: "Yes we Should")
 
         // Deploy on container -> plugin
+        echo "Deploying on Production..."
+        deploy(
+            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://107.22.137.230:8080')],
+            contextPath: '/app2',
+            war: '**/*.war'
+        )
         echo "Deployed on Production"
-        // Add your deploy logic here (replace this comment)
     }
 
     // Post-build Actions
