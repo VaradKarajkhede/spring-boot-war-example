@@ -1,4 +1,9 @@
 node {
+    try{
+     stage('Checkout') {
+      checkout scm
+     }
+    }
     // Define the Maven tool
     def mvnTool = tool 'Maven'
 
