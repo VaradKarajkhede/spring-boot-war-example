@@ -47,16 +47,6 @@ node {
         echo "Deployed on Production"
     }
 
-    // Post-build Actions
-    echo "========always========"
     
-    // Success Post Action
-    success {
-        echo "========pipeline executed successfully ========"
-    }
 
-    // Failure Post Action
-    failure {
-        echo "========pipeline execution failed========"
-    }
-}
+    
