@@ -2,10 +2,10 @@
 FROM openjdk:11-jre-slim
 
 # Copy the WAR file into the container
-COPY **/*.war /app/
+COPY spring-boot-war-example.war /app/
 
 # Expose any necessary ports (adjust as needed)
 EXPOSE 8080
 
 # CMD to start the Spring Boot application
-CMD ["java", "-jar", "/app/**/*.war"]
+CMD ["java", "-jar", "/app/spring-boot-war-example.war"]
