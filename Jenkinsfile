@@ -43,6 +43,13 @@ pipeline {
 
             }
         }
+        stage("Build Docker Image") {
+           steps{
+               script{
+                   sh 'docker build -t varadk05/spring-boot-war-example .'
+               }
+           }
+        }
     }
     post{
         always{
