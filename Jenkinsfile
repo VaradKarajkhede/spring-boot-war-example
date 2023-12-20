@@ -2,7 +2,7 @@ pipeline {
     agent any //{ label 'Java-built-node'}
      tools {
         maven 'Maven' 
-        docker 'docker'
+        dockerTool 'docker'
         }
     stages {
         stage("Test"){
