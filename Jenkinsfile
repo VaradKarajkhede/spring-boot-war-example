@@ -51,6 +51,16 @@ pipeline {
                }
            }
         }
+        stage("Push image to Dockerhub") {
+            steps{
+                script {
+                    withCredentials([string(credentialsId:'dockerhub-pwd', variable:'dockerhubpwd')]) {
+                        sh 'docker login -u varadk05 -p ${dockerhubpwd}'
+                    }
+                    sh 'docker push varadk05/spring-boot-war-example'
+                }
+            }
+        }
     }
     post{
         always{
