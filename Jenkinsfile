@@ -33,8 +33,8 @@ pipeline {
         }
         stage("Deploy on Prod"){
              input {
-                message "Should we continue?"
-                ok "Yes we Should"
+                message "Should we continue to Prod?"
+                ok "Yes"
             }
             
             steps{
