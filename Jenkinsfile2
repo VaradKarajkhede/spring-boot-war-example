@@ -1,5 +1,4 @@
-node(//'Java-built-node') {
-    
+node{  
      stage('Checkout') {
       checkout scm
      }
@@ -25,8 +24,8 @@ node(//'Java-built-node') {
         // Deploy on container -> plugin
         echo "Deploying on Test..."
         deploy(
-            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://54.159.33.147:8080')],
-            contextPath: '/app',
+            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://34.236.147.193:8080')],
+            contextPath: '/app3',
             war: '**/*.war'
         )
         echo "Deployed on Test"
@@ -40,8 +39,8 @@ node(//'Java-built-node') {
         // Deploy on container -> plugin
         echo "Deploying on Production..."
         deploy(
-            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://54.159.33.147:8080')],
-            contextPath: '/app2',
+            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://34.236.147.193:8080')],
+            contextPath: '/app4',
             war: '**/*.war'
         )
         echo "Deployed on Production"
