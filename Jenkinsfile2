@@ -24,7 +24,7 @@ node{
         // Deploy on container -> plugin
         echo "Deploying on Test..."
         deploy(
-            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://54.224.74.99:8080')],
+            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://3.80.177.255:8080')],
             contextPath: '/app3',
             war: '**/*.war'
         )
@@ -39,7 +39,7 @@ node{
         // Deploy on container -> plugin
         echo "Deploying on Production..."
         deploy(
-            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://54.224.74.99:8080')],
+            adapters: [tomcat9(credentialsId: 'tomcatserverdetails', path: '', url: 'http://3.80.177.255:8080')],
             contextPath: '/app4',
             war: '**/*.war'
         )
